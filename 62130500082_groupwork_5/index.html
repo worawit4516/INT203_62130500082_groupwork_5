@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Vue Js - HelloWorld App</title>
+
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="./styles.css" rel="stylesheet">
+
+</head>
+
+
+
+<body background="./image/BG02.png">
+    <div id="app">
+        <div class="flex items-center justify-between bg-black text-white h-10 p-3 pb-5 border-red-600 border-b-2  pt-5">
+            <photo-search :show='show' @input-data="setinput" @toggle-search='toggle'></photo-search>
+            <div>
+                <p> Number of Photos: <span class="mx-2 text-lg">{{ countpicture }}</span></p>
+            </div>
+        </div>
+        <h1 class="text-xl text-6xl text-white  pt-4 font-medium pl-80 ">Photo Gallery Likes({{countLikes}}) picture({{countpicture}})</h1>
+        <photo-view :box_image='Box_image' :currentpicture='currentpicture' @close-Zoom='closeZoom'></photo-view>
+        <photo-item @toggle-done='toggleDone' @zoom='zoom' :searchphoto='searchPhoto'></photo-item>
+
+    </div>
+
+    <!-- my main.js -->
+    <script src="./main.js"></script>
+    <script src="./components/PhotoItem.js"></script>
+    <script src="./components/PhotoSearch.js"></script>
+    <script src="./components/PhotoView.js"></script>
+
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+</body>
+
+</html>
